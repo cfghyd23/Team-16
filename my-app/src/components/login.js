@@ -4,7 +4,7 @@ import Axios from "axios";
 import './Register.css';
 
 
-function Register() {
+function Login() {
 //   const [name, setname] = useState("");
 //   const [password, setpassword] = useState("");
 //   const [Email, setemail] = useState("");
@@ -32,11 +32,11 @@ function Register() {
           <table className="p-5">
             <tbody>
               <tr>
-                <td>Name</td>
+                <td>Email</td>
                 <td>
                   <input
-                    type="text"
-                    name="name"
+                    type="Email"
+                    name="email"
                     // onChange={(event) => {
                     //   setname(event.target.value);
                     // }}
@@ -55,53 +55,6 @@ function Register() {
                   />
                 </td>
               </tr>
-              <tr>
-                <td>Phone_No</td>
-                <td>
-                  <input
-                    type="Number"
-                    name="Phone_No"
-                    // onChange={(event) => {
-                    //   setpassword(event.target.value);
-                    // }}
-                  />
-                </td>
-              </tr>
-              <tr>
-                <td>City</td>
-                <td>
-                  <input
-                    type="text"
-                    name="city"
-                    // onChange={(event) => {
-                    //   setpassword(event.target.value);
-                    // }}
-                  />
-                </td>
-              </tr>
-              <tr>
-                <td>Location</td>
-                <td>
-                  <input
-                    type="text"
-                    name="Location"
-                    // onChange={(event) => {
-                    //   setpassword(event.target.value);
-                    // }}
-                  />
-                </td>
-              </tr>
-              <tr>
-  <td>category</td>
-  <td>
-    <select name="category">
-      <option value="option1">Admin</option>
-      <option value="option2">Young Adult</option>
-      <option value="option3">(15-18)years</option>
-      {/* Add more options as needed */}
-    </select>
-  </td>
-</tr>
             </tbody>
           </table>
         </div>
@@ -115,4 +68,4 @@ function Register() {
   );
 }
 
-export default Register;
+export default Login;
