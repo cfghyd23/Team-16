@@ -77,6 +77,7 @@ app.post("/register", async(req, res) => {
     }
 
     database.collection("login_db").insertOne(newRecord);
+    
 
     return res.redirect("index.html");
 });
