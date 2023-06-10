@@ -1,3 +1,4 @@
+
 import React from "react";
 import { Routes, Route, Link } from "react-router-dom";
 import Register from "./components/Register";
@@ -11,6 +12,7 @@ import SideBySideDivs from "./components/SideBySideDivs";
 import P2P from "./components/P2P";
 import RaiseIssue from "./components/RaiseIssue";
 // import NavbarPage from "./components/NavbarPage";
+
 
 function App() {
   return (
@@ -28,6 +30,7 @@ function App() {
         <Route path="/Peer-2-Peer" element={<P2P />}></Route>
         <Route path="/RaiseIssue" element={<RaiseIssue />}></Route>
       </Routes>
+
     </div>
   );
 }
