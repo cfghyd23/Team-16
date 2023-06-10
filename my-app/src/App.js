@@ -3,7 +3,7 @@ import React from "react";
 import { Routes, Route, Link } from "react-router-dom";
 import Register from "./components/Register";
 import Admin from "./components/AdminHome";
-// import Login from "./components/Login";
+import Login from "./components/Login";
 import Issues from "./components/Issues";
 import Announcements from "./components/Announcements";
 import Donation from "./components/Donation";
@@ -19,7 +19,7 @@ function App() {
     <div className="App">
       <Routes>
         <Route path="/" element={<Register />}></Route>
-        {/* <Route path="/Login" element={<Login />}></Route> */}
+        <Route path="/Login" element={<Login />}></Route>
         <Route path="/Admin" element={<Admin />}></Route>
         {/* <Route path="/Navbar" element={<Navbar />}></Route> */}
         <Route path="/Issues" element={<Issues />}></Route>

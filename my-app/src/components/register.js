@@ -26,6 +26,8 @@ function Register() {
       phone_No: phone_No,
       city: city,
       location: location,
+    }).then((res) => {
+      if (res.data === "yes") window.location.replace("/Login");
     });
   };
   return (
@@ -133,6 +135,9 @@ function Register() {
           >
             Register
           </button>
+        </div>
+        <div>
+          <button type="button" className="btn btn-primary mt-n1"></button>
         </div>
       </form>
     </div>

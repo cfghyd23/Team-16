@@ -1,30 +1,28 @@
 import React, { useEffect, useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Axios from "axios";
-import './Register.css';
-
+import "./Register.css";
 
 function Login() {
-//   const [name, setname] = useState("");
-//   const [password, setpassword] = useState("");
-//   const [Email, setemail] = useState("");
-//   const [phone_No, setphoneno] = useState(0);
-//   const [city, setcity]=useState("");
-//   const [location, setlocation]=useState("");
-//   useEffect(() => {
-//     Axios.get("http://localhost:3001/data").then((response) => {
-//       setUserList(response.data);
-//     });
-//   }, []);
+  const [email, setemail] = useState("");
+  const [password, setpassword] = useState("");
 
- 
-//   const addToList = () => {
-//     console.log("here");
-//     Axios.post("http://localhost:3001/insert", {
-//       name: name,
-//       password: password,
-//     });
-//   };
+  const logUsr = () => {
+    console.log("here");
+    console.log(email);
+    console.log(password);
+    Axios.post("http://localhost:8081/login_db", {
+      email: email,
+      password: password,
+    }).then((res) => {
+      console.log("validating")
+      if (res.data === "yes"){
+        console.log("i am in if")
+        window.location.replace("/Admin");
+
+      } 
+    });
+  };
   return (
     <div className="LoginDiv">
       <form action="">
@@ -37,9 +35,9 @@ function Login() {
                   <input
                     type="Email"
                     name="email"
-                    // onChange={(event) => {
-                    //   setname(event.target.value);
-                    // }}
+                    onChange={(event) => {
+                      setemail(event.target.value);
+                    }}
                   />
                 </td>
               </tr>
@@ -49,9 +47,9 @@ function Login() {
                   <input
                     type="text"
                     name="password"
-                    // onChange={(event) => {
-                    //   setpassword(event.target.value);
-                    // }}
+                    onChange={(event) => {
+                      setpassword(event.target.value);
+                    }}
                   />
                 </td>
               </tr>
@@ -59,13 +57,17 @@ function Login() {
           </table>
         </div>
         <div className="d-flex justify-content-center">
-        <button type="button" className="btn btn-success mt-n1">
-          Login
-        </button>
-      </div>
+          <button
+            type="button"
+            className="btn btn-success mt-n1"
+            onClick={logUsr}
+          >
+            Login
+          </button>
+        </div>
       </form>
     </div>
   );
 }
 
-export default Login;
+export default Login;
