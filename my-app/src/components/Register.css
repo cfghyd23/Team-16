@@ -1,0 +1,23 @@
+.LoginDiv {
+    margin: 0 auto;
+    max-width: 500px;
+    padding: 20px;
+    background: #f2f2f2;
+    border-radius: 5px;
+  }
+  
+  table {
+    width: 100%;
+  }
+  
+  td {
+    padding: 10px;
+  }
+  
+  button {
+    padding: 10px 20px;
+  }
+  .mt-n1{
+    margin-top: -0.25rem; /* Adjust the value as needed */
+  }
+  
