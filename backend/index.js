@@ -90,18 +90,18 @@ app.post("/issues", async(req, res) => {
     const name = req.body.name;
     const email = req.body.email;
     const location = req.body.location;
-    
+
     const issueModel = require("./Models/issues.js");
     const new_issue = new issueModel({
-      date: date,
-      description: description,
-      types: types,
-      status: status,
-      name: name,
-      email: email,
-      location: location,
+        date: date,
+        description: description,
+        types: types,
+        status: status,
+        name: name,
+        email: email,
+        location: location,
     });
-    
+
     const new_issue_json = JSON.stringify(new_issue);
 
     try {
@@ -110,6 +110,6 @@ app.post("/issues", async(req, res) => {
     } catch (err) {
         console.log("error")
     }
-    
+
     return res.redirect("index.html");
 });
