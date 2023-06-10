@@ -70,14 +70,46 @@ app.post("/register", async(req, res) => {
         phone_no: phone_no,
     })
     try {
-        await user.save()
+        await new_user.save()
         console.log("added")
     } catch (err) {
         console.log("error")
     }
 
-    database.collection("login_db").insertOne(newRecord);
-    
 
+    return res.redirect("index.html");
+});
+
+
+app.post("/issues", async(req, res) => {
+
+    const date = req.body.date;
+    const description = req.body.description;
+    const types = req.body.types;
+    const status = req.body.status;
+    const name = req.body.name;
+    const email = req.body.email;
+    const location = req.body.location;
+    
+    const issueModel = require("./Models/issues.js");
+    const new_issue = new issueModel({
+      date: date,
+      description: description,
+      types: types,
+      status: status,
+      name: name,
+      email: email,
+      location: location,
+    });
+    
+    const new_issue_json = JSON.stringify(new_issue);
+
+    try {
+        await new_issue_json.save()
+        console.log("added")
+    } catch (err) {
+        console.log("error")
+    }
+    
     return res.redirect("index.html");
 });
