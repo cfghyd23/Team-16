@@ -4,6 +4,7 @@ const dotenv = require("dotenv");
 const path = require("path");
 const morgan = require("morgan");
 const bodyParser = require("body-parser");
+const cors = require("cors")
 
 const app = express();
 app.use(express.static("public"));
@@ -13,10 +14,10 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(cors({ origin: true, credentials: true }));
 
-mongoose.connect(process.env.MONGO_STRING);
+mongoose.connect(process.env.MONGO_ID);
 const database = mongoose.connection;
 
-const port = process.env.PORT || 8080;
+const port = process.env.PORT || 8081;
 
 app
     .get("/", (req, res) => {
@@ -53,12 +54,14 @@ app.post("/login", async(req, response) => {
 
 
 app.post("/register", async(req, res) => {
-    const email = req.body.email;
+    console.log("here i am")
+    const email = req.body.Email;
     const password = req.body.password;
-    const category = req.bofy.category;
+    // const category = req.body.category;
     const name = req.body.name;
-    const phone_no = req.body.phone_no;
+    const phoneNo = req.body.phoneNo;
     const city = req.body.city;
+    const location = req.body.location;
 
     const registerModel = require("./Models/register")
     const new_user = new registerModel({
@@ -66,9 +69,10 @@ app.post("/register", async(req, res) => {
         password: password,
         city: city,
         email: email,
-        category: category,
-        phone_no: phone_no,
+        // category: category,
+        phoneNo: phoneNo,
     })
+    console.log(new_user)
     try {
         await new_user.save()
         console.log("added")
