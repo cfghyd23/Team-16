@@ -49,10 +49,15 @@ app.post("/login_db", async(req, res) => {
     registerModel.find({ email: e, password: p }).then(function(result, err) {
         console.log(result)
         if (result.length !== 0) {
-            console.log("hurray")
-            res.send("yes");
-            return;
+            if (result[0].email.indexOf("admin") === -1) {
+                res.send("success user");
+                return;
+            } else {
+                res.send("success admin");
+                return;
+            }
         }
+
         if (result.length === 0) {
             res.send("Invalid password/name")
             return;
@@ -61,6 +66,7 @@ app.post("/login_db", async(req, res) => {
             console.log(err);
         }
     })
+
 })
 
 app.post("/register", async(req, res) => {

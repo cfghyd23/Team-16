@@ -1,9 +1,10 @@
 import React from "react";
 import Announcements from "./Announcements";
-import AdminHome from "./AdminHome";
+import User from "./User";
 import Issues from "./Issues";
+import QnAForm from "./QnAForm";
 
-class HomeOfAdmin extends React.Component {
+class User1 extends React.Component {
   render() {
     const div1Style = {
       backgroundColor: "white",
@@ -21,16 +22,16 @@ class HomeOfAdmin extends React.Component {
 
     return (
       <div>
-        <AdminHome />
-        <div style={div1Style} className="mt-3">
-          <Issues />
-        </div>
+        <User />
         <div style={div1Style}>
           <Announcements />
+        </div>
+        <div style={div1Style}>
+          <QnAForm />
         </div>
       </div>
     );
   }
 }
 
-export default HomeOfAdmin;
+export default User1;

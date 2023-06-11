@@ -14,13 +14,12 @@ function Login() {
     Axios.post("http://localhost:8081/login_db", {
       email: email,
       password: password,
-    }).then((res) => {
-      console.log("validating")
-      if (res.data === "yes"){
-        console.log("i am in if")
-        window.location.replace("/Admin");
-
-      } 
+    }).then((response) => {
+      console.log("validating");
+      if (response.data === "success user") window.location.replace("/User");
+      if (response.data === "success admin") window.location.replace("/Home");
+      if (response.data === "Invalid password/name")
+        alert("Invalid password/name");
     });
   };
   return (

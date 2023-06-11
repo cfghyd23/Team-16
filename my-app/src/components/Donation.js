@@ -66,8 +66,14 @@ const Donation = () => {
             <div className="right-box" style={{ backgroundColor: "#F6F1F1" }}>
               <div className="image-container">
                 <img
+                  className="p-3 ms-5"
                   src="https://loretorainbowhomes.in/images/Program.jpg"
                   alt="Image"
+                  style={{
+                    width: "200px",
+                    height: "200px",
+                    objectFit: "cover",
+                  }}
                 />
               </div>
               <div className="text-container">
@@ -85,8 +91,14 @@ const Donation = () => {
           <div className="right-box" style={{ backgroundColor: "#F6F1F1" }}>
             <div className="image-container">
               <img
+                className="p-3 ms-5"
                 src="https://csrbox.org/company/proj_img/1538382483Pune-Program-Launch-Balpanachi-Aastha1.1.jpeg"
                 alt="Image"
+                style={{
+                  width: "200px",
+                  height: "200px",
+                  objectFit: "cover",
+                }}
               />
             </div>
             <div className="text-container">

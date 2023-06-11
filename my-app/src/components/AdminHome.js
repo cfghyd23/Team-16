@@ -36,13 +36,13 @@ function AdminHome() {
                   </Link>
                 </li>
                 <li className="nav-item">
-                  <Link className="nav-link" to="/Donation">
-                    Donation
+                  <Link className="nav-link" to="/Tracking">
+                    Tracking
                   </Link>
                 </li>
                 <li className="nav-item">
-                  <Link className="nav-link" to="/Tracking">
-                    Tracking
+                  <Link className="nav-link" to="/Profile">
+                    Profile
                   </Link>
                 </li>
               </ul>
