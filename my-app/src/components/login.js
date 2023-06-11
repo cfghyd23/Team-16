@@ -23,10 +23,11 @@ function Login() {
     });
   };
   return (
-    <div className="LoginDiv">
-      <form action="">
-        <div className="p-auto m-5 d-flex align-items-center justify-content-center p-5">
-          <table className="p-5">
+    <div className="LoginDiv mt-5" style={{ height: "500px" }}>
+      <p className="display-6 ms-5">Login</p>
+      <form action="" style={{ height: "500px" }}>
+        <div className="p-auto d-flex align-items-center justify-content-center">
+          <table className="p-2">
             <tbody>
               <tr>
                 <td>Email</td>
@@ -58,7 +59,7 @@ function Login() {
         <div className="d-flex justify-content-center">
           <button
             type="button"
-            className="btn btn-success mt-n1"
+            className="btn btn-success mt-2"
             onClick={logUsr}
           >
             Login

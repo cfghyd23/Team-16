@@ -29,7 +29,8 @@ function QnAForm() {
   };
 
   return (
-    <div className="cont1">
+    <div className="cont1 mt-2">
+      <p className="display-6 ms-4">How are you doing ? </p>
       <form onSubmit={handleSubmit}>
         <div className="question">
           <label> How is your Physical Health ? </label> <br />
@@ -49,8 +50,8 @@ function QnAForm() {
             checked={physicalHealth === "2"}
             onChange={handlePhysicalHealthChange}
           />
-          <br />
           Bad
+          <br />
           <input
             type="radio"
             name="PhysicalHealth"
@@ -58,7 +59,7 @@ function QnAForm() {
             checked={physicalHealth === "3"}
             onChange={handlePhysicalHealthChange}
           />
-          Good{" "}
+          Good <br />
           <input
             type="radio"
             name="PhysicalHealth"
@@ -66,7 +67,7 @@ function QnAForm() {
             checked={physicalHealth === "4"}
             onChange={handlePhysicalHealthChange}
           />
-          Very Good{" "}
+          Very Good <br />
           <input
             type="radio"
             name="PhysicalHealth"
@@ -74,10 +75,11 @@ function QnAForm() {
             checked={physicalHealth === "5"}
             onChange={handlePhysicalHealthChange}
           />
-          Excellent{" "}
+          Excellent <br />
+          <br />
         </div>{" "}
         <div className="question">
-          <label> How is your Mental Health ? </label>{" "}
+          <label> How is your Mental Health ? </label> <br />
           <input
             type="radio"
             name="MentalHealth"
@@ -101,7 +103,7 @@ function QnAForm() {
             checked={mentalHealth === "3"}
             onChange={handleMentalHealthChange}
           />
-          Good{" "}
+          Good <br />
           <input
             type="radio"
             name="MentalHealth"
@@ -118,6 +120,7 @@ function QnAForm() {
             onChange={handleMentalHealthChange}
           />
           Excellent <br />
+          <br />
         </div>{" "}
         <div className="question">
           <label> How is your job or student life going ? </label>{" "}
@@ -164,6 +167,7 @@ function QnAForm() {
         </div>{" "}
         <div className="question">
           <label htmlFor="description"> Want to add any message ? </label>{" "}
+          <br />
           <textarea
             id="description"
             name="description"
@@ -173,8 +177,8 @@ function QnAForm() {
             required
           ></textarea>{" "}
         </div>{" "}
-        <div style={{ textAlign: "center" }}>
-          <input type="submit" value="Submit" className="btn-submit" />
+        <div>
+          <button className="btn-success btn mt-2">Submit</button>
         </div>{" "}
       </form>{" "}
     </div>

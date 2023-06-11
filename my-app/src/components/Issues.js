@@ -22,6 +22,14 @@ function Issues() {
       <div className="mainDiv m-5">
         <h1>Issues</h1>
         <table className="mt-4">
+          <thead>
+            <tr>
+              <th>User</th>
+              <th>Description</th>
+              <th>Type</th>
+              <th>Email</th>
+            </tr>
+          </thead>
           <tbody>
             {issues.map((val, key) => (
               <tr key={key} className="border border-dark">

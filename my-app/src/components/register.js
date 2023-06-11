@@ -16,6 +16,9 @@ function Register() {
   //       setUserList(response.data);
   //     });
   //   }, []);
+  const redirect = () => {
+    window.location.replace("/login");
+  };
 
   const addToList = () => {
     console.log("here");
@@ -32,8 +35,9 @@ function Register() {
   };
   return (
     <div className="LoginDiv">
+      <p className="display-6 ms-4">Register</p>
       <form action="">
-        <div className="p-auto m-5 d-flex align-items-center justify-content-center p-5">
+        <div className="m-5 d-flex align-items-center justify-content-center">
           <table className="p-5">
             <tbody>
               <tr>
@@ -136,8 +140,11 @@ function Register() {
             Register
           </button>
         </div>
-        <div>
-          <button type="button" className="btn btn-primary mt-n1"></button>
+        <div className="d-flex justify-content-center align-items-center mt-4">
+          <p>Already a user</p>
+          <button type="button" className="btn btn-primary" onClick={redirect}>
+            Login
+          </button>
         </div>
       </form>
     </div>
