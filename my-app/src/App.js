@@ -10,7 +10,7 @@ import Tracking from "./components/Tracking";
 import HomeOfAdmin from "./components/HomeOfAdmin";
 import P2P from "./components/P2P";
 import RaiseIssue from "./components/RaiseIssue";
-import User from "./components/User";
+import User from "./components/User1";
 import Profile from "./components/UserProfile";
 // import NavbarPage from "./components/NavbarPage";
 

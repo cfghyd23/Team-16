@@ -32,6 +32,62 @@ const P2P = () => {
               <button className="btn btn-primary btn-lg">Message</button>
             </td>
           </tr>
+          <tr>
+            <td>Bob Johnson</td>
+            <td>Hyderabad</td>
+            <td>
+              <button class="btn btn-primary btn-lg">Message</button>
+            </td>
+          </tr>
+          <tr>
+            <td>Alice Williams</td>
+            <td>Hyderabad</td>
+            <td>
+              <button class="btn btn-primary btn-lg">Message</button>
+            </td>
+          </tr>
+          <tr>
+            <td>Mike Brown</td>
+            <td>Hyderabad</td>
+            <td>
+              <button class="btn btn-primary btn-lg">Message</button>
+            </td>
+          </tr>
+          <tr>
+            <td>Mike Brown</td>
+            <td>Hyderabad</td>
+            <td>
+              <button class="btn btn-primary btn-lg">Message</button>
+            </td>
+          </tr>
+          <tr>
+            <td>Mike Brown</td>
+            <td>Hyderabad</td>
+            <td>
+              <button class="btn btn-primary btn-lg">Message</button>
+            </td>
+          </tr>
+          <tr>
+            <td>Mike Brown</td>
+            <td>Hyderabad</td>
+            <td>
+              <button class="btn btn-primary btn-lg">Message</button>
+            </td>
+          </tr>
+          <tr>
+            <td>Mike Brown</td>
+            <td>Hyderabad</td>
+            <td>
+              <button class="btn btn-primary btn-lg">Message</button>
+            </td>
+          </tr>
+          <tr>
+            <td>Mike Brown</td>
+            <td>Hyderabad</td>
+            <td>
+              <button class="btn btn-primary btn-lg">Message</button>
+            </td>
+          </tr>
           {/* Rest of the table rows */}
         </tbody>
       </table>
