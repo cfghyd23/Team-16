@@ -11,6 +11,7 @@ import HomeOfAdmin from "./components/HomeOfAdmin";
 import P2P from "./components/P2P";
 import RaiseIssue from "./components/RaiseIssue";
 import User from "./components/User";
+import Profile from "./components/UserProfile";
 // import NavbarPage from "./components/NavbarPage";
 
 function App() {
@@ -30,6 +31,7 @@ function App() {
         <Route path="/Tracking" element={<Tracking />}></Route>
         <Route path="/Peer-2-Peer" element={<P2P />}></Route>
         <Route path="/RaiseIssue" element={<RaiseIssue />}></Route>
+        <Route path="/Profile" element={<Profile />}></Route>
       </Routes>
     </div>
   );
