@@ -1,9 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import Issues from "./Issues";
-import Announcements from "./Announcements";
 
-function AdminHome() {
+function User() {
   return (
     <div>
       <div>
@@ -25,14 +23,19 @@ function AdminHome() {
             </button>
             <div className="collapse navbar-collapse" id="navbarNav">
               <ul className="navbar-nav ml-auto">
-                <li className="nav-item text-dark">
-                  <Link className="nav-link" to="/Issues">
-                    Issues
-                  </Link>
-                </li>
                 <li className="nav-item">
                   <Link className="nav-link" to="/Announcements">
                     Announcements
+                  </Link>
+                </li>
+                <li className="nav-item text-dark">
+                  <Link className="nav-link" to="/Peer-2-Peer">
+                    Connect to Peers
+                  </Link>
+                </li>
+                <li className="nav-item">
+                  <Link className="nav-link" to="/RaiseIssue">
+                    RaiseIssue
                   </Link>
                 </li>
                 <li className="nav-item">
@@ -41,8 +44,8 @@ function AdminHome() {
                   </Link>
                 </li>
                 <li className="nav-item">
-                  <Link className="nav-link" to="/Tracking">
-                    Tracking
+                  <Link className="nav-link" to="/Profile">
+                    Profile
                   </Link>
                 </li>
               </ul>
@@ -54,4 +57,4 @@ function AdminHome() {
   );
 }
 
-export default AdminHome;
+export default User;

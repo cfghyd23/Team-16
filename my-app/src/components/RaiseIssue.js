@@ -1,6 +1,28 @@
-import React from "react";
+import React, { useState } from "react";
+import Axios from "axios";
 
 function RaiseIssue() {
+  const [name, setname] = useState("");
+  const [email, setemail] = useState("");
+  const [type, setType] = useState("");
+  const [desc, setDesc] = useState("");
+  var date = new Date();
+  var dd = String(date.getDate()).padStart(2, "0");
+  var mm = String(date.getMonth() + 1).padStart(2, "0"); //January is 0!
+  var yyyy = date.getFullYear();
+  date = mm + "/" + dd + "/" + yyyy;
+  const addIssue = () => {
+    console.log("here");
+    Axios.post("http://localhost:8081/addIssue", {
+      name: name,
+      email: email,
+      type: type,
+      desc: desc,
+      date: date,
+    }).then((res) => {
+      if (res.data === "yes") window.location.replace("/User");
+    });
+  };
   return (
     <div
       className="container mt-4"
@@ -16,7 +38,14 @@ function RaiseIssue() {
       <form>
         <div className="form-group" style={{ margin: "10px" }}>
           <label htmlFor="Name">Name</label>
-          <input type="text" id="Name" name="Name" value="abc" disabled />
+          <input
+            type="text"
+            id="Name"
+            name="Name"
+            onChange={(event) => {
+              setname(event.target.value);
+            }}
+          />
         </div>
         <div className="form-group" style={{ margin: "10px" }}>
           <label htmlFor="Email">Email:</label>
@@ -24,37 +53,21 @@ function RaiseIssue() {
             type="email"
             id="Email"
             name="Email"
-            value="abc.in@xyz.com"
-            disabled
+            onChange={(event) => {
+              setemail(event.target.value);
+            }}
           />
         </div>
         <div className="form-group" style={{ margin: "10px" }}>
-          <label htmlFor="PhNo">Ph. No.:</label>
-          <input type="tel" id="PhNo" name="PhNo" value="987654321" disabled />
-        </div>
-        <div className="form-group" style={{ margin: "10px" }}>
-          <label htmlFor="type">Type:</label>
-          <select
-            name="type"
+          <label htmlFor="Email">Type:</label>
+          <input
+            type="type"
             id="type"
-            className="selectEle"
-            style={{
-              height: "40px",
-              width: "100%",
-              padding: "10px",
-              border: "1px solid #ccc",
-              borderRadius: "4px",
-              resize: "vertical",
-              fontFamily: "Arial, sans-serif",
-              fontSize: "15px",
+            name="type"
+            onChange={(event) => {
+              setType(event.target.value);
             }}
-          >
-            <option value="Medical">Medical Help Needed</option>
-            <option value="Financial">Financial Help Needed</option>
-            <option value="Education">Educational Help Needed</option>
-            <option value="Employment">Employment Help Needed</option>
-            <option value="Others">Others</option>
-          </select>
+          />
         </div>
         <div className="form-group" style={{ margin: "10px" }}>
           <label htmlFor="title">Title:</label>
@@ -68,7 +81,14 @@ function RaiseIssue() {
         </div>
         <div className="form-group" style={{ margin: "10px" }}>
           <label htmlFor="description">Description:</label>
-          <textarea id="description" name="description" rows="5" required />
+          <textarea
+            id="description"
+            name="description"
+            rows="5"
+            onChange={(event) => {
+              setDesc(event.target.value);
+            }}
+          />
         </div>
         <button
           type="submit"
@@ -81,6 +101,7 @@ function RaiseIssue() {
             borderRadius: "4px",
             cursor: "pointer",
           }}
+          onClick={addIssue}
         >
           Submit
         </button>

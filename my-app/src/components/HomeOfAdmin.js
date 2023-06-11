@@ -3,7 +3,7 @@ import Announcements from "./Announcements";
 import AdminHome from "./AdminHome";
 import Issues from "./Issues";
 
-class SideBySideDivs extends React.Component {
+class HomeOfAdmin extends React.Component {
   render() {
     const div1Style = {
       backgroundColor: "white",
@@ -33,4 +33,4 @@ class SideBySideDivs extends React.Component {
   }
 }
 
-export default SideBySideDivs;
+export default HomeOfAdmin;

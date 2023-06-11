@@ -15,13 +15,13 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(
     cors({
-      origin: true,
-      credentials: true,
-      methods: ["GET", "POST"],
-      allowedHeaders: ["Content-Type", "Authorization"],
+        origin: true,
+        credentials: true,
+        methods: ["GET", "POST"],
+        allowedHeaders: ["Content-Type", "Authorization"],
     })
-  );
-  
+);
+
 
 mongoose.connect(process.env.MONGO_ID);
 const database = mongoose.connection;
@@ -29,12 +29,12 @@ const database = mongoose.connection;
 const port = process.env.PORT || 8081;
 
 app
-  .get("/", (req, res) => {
-    res.send("running....");
-  })
-  .listen(port, () => {
-    console.log(`server running in the http://localhost:${port}`);
-  });
+    .get("/", (req, res) => {
+        res.send("running....");
+    })
+    .listen(port, () => {
+        console.log(`server running in the http://localhost:${port}`);
+    });
 
 // app.post("/login", async (req, response) => {
 //   const email = req.body.email;
@@ -68,11 +68,10 @@ app.post("/login_db", async(req, res) => {
         "password": p,
     })
 
-        // console.log("Name is: ", n, " Password is: ", p)
+    // console.log("Name is: ", n, " Password is: ", p)
     registerModel.find({ email: e, password: p }).then(function(result, err) {
         console.log(result)
-        if (result.length !== 0) 
-        {
+        if (result.length !== 0) {
             console.log("hurray")
             res.send("yes");
             return;
@@ -87,66 +86,74 @@ app.post("/login_db", async(req, res) => {
     })
 })
 
-app.post("/register", async (req, res) => {
-  console.log("here i am");
-  const email = req.body.Email;
-  const password = req.body.password;
-  // const category = req.body.category;
-  const name = req.body.name;
-  const phoneNo = req.body.phoneNo;
-  const city = req.body.city;
-  const location = req.body.location;
+app.post("/register", async(req, res) => {
+    console.log("here i am");
+    const email = req.body.Email;
+    const password = req.body.password;
+    // const category = req.body.category;
+    const name = req.body.name;
+    const phoneNo = req.body.phoneNo;
+    const city = req.body.city;
+    const location = req.body.location;
 
-  const registerModel = require("./Models/register");
-  const new_user = new registerModel({
-    name: name,
-    password: password,
-    city: city,
-    email: email,
-    // category: category,
-    phoneNo: phoneNo,
-  });
-  console.log(new_user);
+    const new_user = new registerModel({
+        name: name,
+        password: password,
+        city: city,
+        email: email,
+        // category: category,
+        phoneNo: phoneNo,
+    });
+    console.log(new_user);
 
-  try {
-    await new_user.save();
-    console.log("added");
-    res.send("yes");
-    return;
-  } catch (err) {
-    console.log(err);
-    console.log("error");
-  }
+    try {
+        await new_user.save();
+        console.log("added");
+        res.send("yes");
+        return;
+    } catch (err) {
+        console.log(err);
+        console.log("error");
+    }
 });
 
-app.post("/issues", async (req, res) => {
-  const date = req.body.date;
-  const description = req.body.description;
-  const types = req.body.types;
-  const status = req.body.status;
-  const name = req.body.name;
-  const email = req.body.email;
-  const location = req.body.location;
+const issueModel = require("./Models/issues")
+app.get("/data", async(req, res) => {
+    issueModel.find({}).then(function(err, result) {
+        if (err) {
+            res.send(err)
+            return;
+        }
+        res.send(result)
+        return;
+    })
+})
 
-  const issueModel = require("./Models/issues.js");
-  const new_issue = new issueModel({
-    date: date,
-    description: description,
-    types: types,
-    status: status,
-    name: name,
-    email: email,
-    location: location,
-  });
+app.post("/addIssue", async(req, res) => {
+    console.log("here i am");
+    const email = req.body.email;
+    const name = req.body.name;
+    // const category = req.body.category;
+    const date = req.body.date;
+    const description = req.body.desc;
+    const type = req.body.type;
 
-  const new_issue_json = JSON.stringify(new_issue);
+    const new_issue = new issueModel({
+        name: name,
+        description: description,
+        types: type,
+        email: email,
+        date: date
+    });
+    console.log(new_issue);
 
-  try {
-    await new_issue_json.save();
-    console.log("added");
-  } catch (err) {
-    console.log("error");
-  }
-
-  return res.redirect("index.html");
+    try {
+        await new_issue.save();
+        console.log("added");
+        res.send("yes");
+        return;
+    } catch (err) {
+        console.log(err);
+        console.log("error");
+    }
 });
