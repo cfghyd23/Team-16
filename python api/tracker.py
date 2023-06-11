@@ -34,8 +34,10 @@ def update_login(today_date):
 
         if num_days > 45:
             person = {
-                "name": doc.get("name"),
-                "no_of_days": num_days
+                "Name": doc.get("name"),
+                "No_of_days": abs(num_days),
+                "Email" : doc.get("email"),
+                "Date" : doc.get("date")
             }
             assist_people.append(person)
 

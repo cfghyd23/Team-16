@@ -28,37 +28,14 @@ const database = mongoose.connection;
 
 const port = process.env.PORT || 8081;
 
-app
-    .get("/", (req, res) => {
+
+app.get("/", (req, res) => {
         res.send("running....");
     })
     .listen(port, () => {
         console.log(`server running in the http://localhost:${port}`);
     });
 
-// app.post("/login", async (req, response) => {
-//   const email = req.body.email;
-//   const password = req.body.password;
-
-//   database.collection("login_db").findOne({ email: email }, (err, res) => {
-//     if (err) {
-//       console.error(err);
-//       return response.send("Error occurred during login");
-//     }
-
-//     if (!res) {
-//       return response.send(
-//         "Invalid information! Please create an account first"
-//       );
-//     }
-
-//     if (res.password === password) {
-//       return response.redirect("index.html");
-//     } else {
-//       return response.send("Invalid Password!");
-//     }
-//   });
-// });
 
 app.post("/login_db", async(req, res) => {
     const e = req.body.email
